@@ -1,5 +1,6 @@
 package com.example.myfinances;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -26,6 +28,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+    }
+    public void alert(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        alert.setMessage("Data Saved to Database Successfully!");
+        alert.setNeutralButton("Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        alert.create();
+        alert.show();
+    }
+    void initState(){
+        RadioGroup radioGroup = findViewById(R.id.rGroupAccountOptions);
+        EditText paymentAmount = findViewById(R.id.etPaymentAmount);
+        radioGroup.check(R.id.cdRadioBtn);
+        paymentAmount.setEnabled(false);
     }
     public void radioGroupChange(){
         RadioGroup radioGroup = findViewById(R.id.rGroupAccountOptions);
