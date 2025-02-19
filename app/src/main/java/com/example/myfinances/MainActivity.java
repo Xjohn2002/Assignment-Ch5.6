@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                         cdDb.insertVals(cd);
                         cdDb.close();
                         alert();
-                        clearText();
+                        deleteText();
                     } catch (Exception e) {
                         System.out.println("Error with cd db");
                     }
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                         loanDB.insertVals(loan);
                         loanDB.close();
                         alert();
-                        clearText();
+                        deleteText();
                     } catch (Exception e) {
                         System.out.println("Error with LoanDB");
                     }
@@ -143,12 +143,34 @@ public class MainActivity extends AppCompatActivity {
                         CheckingDB.open();
                         CheckingDB.insertVals(checkingAccount);
                         alert();
-                        clearText();
+                        deleteText();
                     } catch (Exception e) {
                         System.out.println("Error with CheckingDB");
                     }
                 }
             }
         });
+    }
+    public void initCancelBtn(){
+        Button cancelButton = findViewById(R.id.cancelBtn);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteText();
+            }
+        });
+    }
+    public void deleteText(){
+        EditText accountNumber = findViewById(R.id.etAccountNum);
+        EditText initialBalance = findViewById(R.id.etInitialBalance);
+        EditText currentBalance = findViewById(R.id.etCurrentBalance);
+        EditText interestRate = findViewById(R.id.etInterestRate);
+        EditText paymentAmount = findViewById(R.id.etPaymentAmount);
+
+        accountNumber.setText("");
+        initialBalance.setText("");
+        currentBalance.setText("");
+        interestRate.setText("");
+        paymentAmount.setText("");
     }
 }
