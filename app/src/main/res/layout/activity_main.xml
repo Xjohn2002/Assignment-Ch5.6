@@ -95,6 +95,7 @@
         tools:layout_editor_absoluteY="264dp" />
 
     <RadioGroup
+        android:id="@+id/rGroupAccountOptions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -106,19 +107,19 @@
             android:id="@+id/cdRadioBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="CD" />
 
         <RadioButton
             android:id="@+id/loanRadioBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Loan" />
 
         <RadioButton
             android:id="@+id/checkingRadioBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="Checking" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
